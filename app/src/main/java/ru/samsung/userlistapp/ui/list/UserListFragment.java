@@ -7,9 +7,11 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.navigation.Navigation;
 
 import ru.samsung.userlistapp.R;
 import ru.samsung.userlistapp.databinding.FragmentListBinding;
+import ru.samsung.userlistapp.ui.profile.ProfileFragment;
 import ru.samsung.userlistapp.ui.utils.Utils;
 
 public class UserListFragment extends Fragment {
@@ -51,7 +53,12 @@ public class UserListFragment extends Fragment {
     }
 
     private void openProfile(@NonNull String id) {
-        //TODO: add code here
+        View view = getView();
+        if (view == null) return;
+        Navigation.findNavController(view).navigate(
+                R.id.action_listFragment_to_profileFragment,
+                ProfileFragment.getBundle(id)
+        );
     }
 
     @Override

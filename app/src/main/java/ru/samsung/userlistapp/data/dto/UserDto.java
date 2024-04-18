@@ -9,7 +9,7 @@ public class UserDto {
     @SerializedName("id")
     public String id;
     @Nullable
-    @SerializedName("name")
+    @SerializedName("username")
     public String name;
     @Nullable
     @SerializedName("photoUrl")
